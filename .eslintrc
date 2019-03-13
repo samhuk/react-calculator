@@ -1,0 +1,44 @@
+{
+  "parser": "babel-eslint",
+  "extends": "airbnb",
+  "rules": {
+    "import/no-named-as-default": 0,
+    "jsx-a11y/label-has-for": 0,
+    "react/jsx-one-expression-per-line": 0,
+    "import/prefer-default-export": 0,
+    "import/no-cycle": 0,
+    "camelcase": [2, {
+      "properties": "always"
+    }],
+    "import/no-extraneous-dependencies": [2, {
+      "devDependencies": true
+    }],
+    "semi": [2, "never"],
+    "object-curly-newline": [2, {
+      "ObjectExpression": {
+        "multiline": true
+      },
+      "ObjectPattern": {
+        "multiline": true
+      },
+      "ImportDeclaration": "never",
+      "ExportDeclaration": {
+        "multiline": true
+      }
+    }]
+  },
+  "plugins": [
+    "react"
+  ],
+  "settings": {
+    "import/resolver": {
+      "babel-module": {}
+    }
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "jest": true,
+    "es6": true
+  }
+}
