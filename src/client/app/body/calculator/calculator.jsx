@@ -37,23 +37,25 @@ class Calculator extends React.Component {
   render() {
     const { isCalculating, value, showEmptyError, showFailedError } = this.state
     return (
-      <div className="calculator">
-        <label htmlFor="1" className="inlineLabel">Calculation Expression:</label>
-        <input
-          id="1"
-          type="text"
-          onChange={this.onExpressionChange}
-          onKeyPress={e => e.key === 'Enter' && this.onCalculate()}
-          placeholder="Enter Expression"
-        />
-        <div className="error errorMessage">{showEmptyError ? 'Please enter an expression' : ''}</div>
-        <button type="submit" onClick={this.onCalculate}>
-          {isCalculating ? <b>Calculating...</b> : 'Calculate' }
-        </button>
-        <div className="error errorMessage">
-          {showFailedError ? 'Please check your syntax.' : ''}
+      <div className="calculatorRow">
+        <div className="calculator">
+          <label htmlFor="1" className="inlineLabel">Calculation Expression:</label>
+          <input
+            id="1"
+            type="text"
+            onChange={this.onExpressionChange}
+            onKeyPress={e => e.key === 'Enter' && this.onCalculate()}
+            placeholder="Enter Expression"
+          />
+          <div className="error errorMessage">{showEmptyError ? 'Please enter an expression' : ''}</div>
+          <button type="submit" onClick={this.onCalculate}>
+            {isCalculating ? <b>Calculating...</b> : 'Calculate' }
+          </button>
+          <div className="error errorMessage">
+            {showFailedError ? 'Please check your syntax.' : ''}
+          </div>
+          <b className="value">{value}</b>
         </div>
-        <b className="value">{value}</b>
       </div>
     )
   }

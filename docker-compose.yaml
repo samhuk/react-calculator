@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  standard-node:
+    build:
+      context: "./standard-node"
+    
+  calculator:
+    container_name: calculator
+    build:
+      context: "."
+    ports:
+      - 7001:80

@@ -1,21 +1,26 @@
 @mixin calculatorMixin($background-color, $width) {
-  .calculator {
-    background-color: $background-color;
-    max-width: 400px;
+  .calculatorRow {
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    margin: 20px;
-
-    label {
-      margin-bottom: 10px;
+    .calculator {
+      background-color: $background-color;
+      width: 400px;
+      max-width: 400px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin: 20px;
+  
+      label {
+        margin-bottom: 10px;
+      }
+  
+      .errorMessage {
+        display: inline-block;
+        height: 1.5em;
+        min-height: 1.5em;
+      }
+  
     }
-
-    .errorMessage {
-      display: inline-block;
-      height: 1.5em;
-      min-height: 1.5em;
-    }
-
   }
 }

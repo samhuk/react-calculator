@@ -5,6 +5,6 @@ node_modules
 /node_modules
 
 # production
-/build
+/dist
 
 npm-debug.log*

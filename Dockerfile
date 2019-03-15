@@ -1,13 +1,10 @@
-FROM node
-
-RUN apk add --no-cache make gcc g++ python
-
+FROM standard-node as build
 COPY package*.json ./
-RUN npm install
+RUN npm install --loglevel verbose
 COPY . ./
 RUN npm run build
 
-FROM node
+FROM standard-node as release
 COPY package*.json ./
 RUN npm install --only=production
 COPY --from=build /dist /app

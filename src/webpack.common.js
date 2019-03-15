@@ -3,8 +3,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const path = require('path')
 
-const production = process.env.NODE_ENV === 'production'
-const fileNameTemplate = ext => (production
+const isProduction = process.env.NODE_ENV === 'production'
+const fileNameTemplate = ext => (isProduction
   ? `[name].[chunkhash].min.${ext}`
   : `[name].${ext}`)
 
@@ -13,7 +13,7 @@ const CLIENT_BUILD_DIR = path.resolve(__dirname, '../dist/client')
 const CLIENT_DIR = path.resolve(SRC_DIR, 'client')
 
 module.exports = {
-  mode: production ? 'production' : 'development',
+  mode: isProduction ? 'production' : 'development',
   devtool: 'inline-source-map',
   devServer: { historyApiFallback: true },
   entry: [
@@ -54,7 +54,7 @@ module.exports = {
         test: /\.(ico|png|gif|ttf|otf|eot|svg|woff(2)?)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
         loader: 'file-loader?name=[name].[ext]',
         options: {
-          name: production
+          name: isProduction
             ? 'content/[name].[hash].[ext]'
             : 'content/[name].[ext]',
         },
