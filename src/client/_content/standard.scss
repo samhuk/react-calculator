@@ -1,0 +1,59 @@
+@import "./mixins/header";
+@import "./mixins/calculator";
+
+$primary-color: #eee;
+$secondary-color: #aaa;
+$standard-border: 1px solid $secondary-color;
+$font-family: Arial, Geneva, Helvetica, sans-serif;
+
+@include headerMixin($primary-color, 60px);
+@include calculatorMixin(#fff, 400px);
+
+body {
+  font-family: $font-family;
+  font-size: 14px;
+}
+
+button {
+  display: inline-block;
+  cursor: pointer;
+  padding: 5px 20px;
+  border-radius: 5px;
+  outline: none;
+}
+
+.error {
+  color: red;
+}
+
+%label {
+  font-weight: bold;
+}
+
+label.inlineLabel {
+  @extend %label;
+  display: inline-block;
+  padding-right: 20px;
+}
+
+label.blockLabel {
+  @extend %label;
+  ::after {
+    display: block;
+  }
+  margin-bottom: 20px;
+}
+
+input {
+  display: inline-block;
+  outline: none;
+  border: $standard-border;
+  &:focus {
+    box-shadow: 0 0 0 1px rgba(0, 123, 255, .5);
+  }
+  border-radius: 5px;
+  &[type="text"] {
+    padding: 5px 1px 5px 10px;
+    font-size: 14px;
+  }
+}

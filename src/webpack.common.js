@@ -31,6 +31,7 @@ module.exports = {
       template: path.resolve(CLIENT_DIR, 'index.html'),
       filename: 'index.html',
       inject: 'body',
+      favicon: path.resolve(CLIENT_DIR, '_content/favicon.ico'),
     }),
     new ExtractTextPlugin(fileNameTemplate('css')),
   ],
